@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+  --Purple-600: hsl(238, 40%, 52%);
+  --Pink-400: hsl(358, 79%, 66%);
+  --Purple-200: hsl(239, 57%, 85%);
+  --Pink-200: hsl(357, 100%, 86%);
+
+  --Grey-800: hsl(212, 24%, 26%);
+  --Grey-500: hsl(211, 10%, 45%);
+  --Grey-100: hsl(223, 19%, 93%);
+  --Grey-50: hsl(228, 33%, 97%);
+  --White: hsl(0, 100%, 100%);
+}
+*{
+  box-sizing: border-box;
+}
+body {
+  font-family: "Rubik", sans-serif;
+  margin: 0;
+  background-color: var(--Grey-50);
+  padding: 15px;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin: 70px auto;
+  max-width: 670px;
+}
+.container {
+  width: 100%;
+}
+.comment-card,
+.reply-card {
+  background-color: var(--White);
+  border-radius: 6px;
+  padding: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  color: var(--Grey-500);
+  box-shadow: 0 3px 7px 0 var(--Purple-200);
+  position: relative;
+} 
+.comment-card {
+  width: 100%;
+}
+.reply-card:not(:first-of-type) {
+  margin-top: 20px;
+}
+.reply-card {
+  width: calc(100% - 70px);
+  margin-left: 35px;
+  justify-self: flex-end;
+}
+.replies {
+  margin-top: 20px;
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+.replies > div {
+  width: 100%;
+}
+.replies .line {
+  position: absolute;
+  left: 35px;
+  width: 1px;
+  height: 100%;
+  background-color: var(--Grey-500);
+}
+.comment-card .buttons,
+.reply-card .buttons {
+  background-color: var(--Grey-100);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 7px;
+  gap: 5px;
+  align-self: flex-start;
+  float: left;
+}
+.comment-card .buttons button,
+.reply-card .buttons button {
+  background: none;
+  border: none;
+  color: var(--Purple-200);
+  transition: 0.3s;
+  cursor: pointer;
+}
+.comment-card .buttons button .icon,
+.reply-card .buttons button .icon {
+  font-size: 18px;
+}
+.comment-card .buttons button:hover,
+.reply-card .buttons button:hover {
+  color: var(--Purple-600);
+}
+.comment-card .buttons span,
+.reply-card .buttons span {
+  font-weight: 600;
+  color: var(--Purple-600);
+}
+.comment-card .comment-info,
+.reply-card .reply-info {
+  flex: 1;
+}
+.comment-card .header,
+.reply-card .header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.comment-card .header .left,
+.reply-card .header .left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+@media (max-Width: 450px) {
+  .comment-card .header .left,
+  .reply-card .header .left {
+    gap: 5px;
+  }
+}
+.comment-card .header .left img,
+.reply-card .header .left img {
+  width: 32px;
+}
+@media (max-Width: 450px) {
+  .comment-card .header .left img,
+  .reply-card .header .left img {
+    width: 28px;
+  }
+}
+.comment-card .left .username,
+.reply-card .left .username {
+  font-weight: 600;
+  color: var(--Grey-800);
+}
+@media (max-Width: 450px) {
+  .comment-card .left .username,
+  .reply-card .left .username {
+    font-weight: 550;
+  }
+}
+.comment-card .left .you,
+.reply-card .left .you {
+  background-color: var(--Purple-600);
+  color: var(--White);
+  padding: 0px 4px 3px;  
+  margin-left: -3px;
+}
+@media (max-Width: 450px) {
+  .comment-card .left .you,
+  .reply-card .left .you {
+    padding: 0px 1px 1px; 
+  }
+}
+.comment-card .header .right,
+.reply-card .header .right {
+  justify-self: flex-end;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.comment-card .header .right button,
+.reply-card .header .right button {
+  color: var(--Purple-600);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: 0.3s;
+}
+.comment-card .header .right button.delete-btn,
+.reply-card .header .right button.delete-btn {
+  color: var(--Pink-400);
+}
+.comment-card .header .right button.delete-btn:hover,
+.reply-card .header .right button.delete-btn:hover {
+  color: var(--Pink-200);
+}
+.comment-card .header .right button:last-of-type:hover,
+.reply-card .header .right button:last-of-type:hover {
+  color: var(--Purple-200);
+}
+.comment-card .content,
+.reply-card .content {
+  margin: 10px 0 0;
+  line-height: 1.6;
+  color: var(--Grey-500);
+}
+@media (max-Width: 450px) {
+  .comment-card .content,
+  .reply-card .content {
+    line-height: 1.4;
+  }
+}
+.comment-card .updating-form,
+.reply-card .updating-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 13px;
+} 
+.comment-card .updating-form textarea,
+.reply-card .updating-form textarea {
+  resize: none;
+  height: 100px;
+  border-radius: 6px;
+  padding: 15px;
+  caret-color: var(--Grey-500);
+  border: 1px solid var(--Grey-100);
+}
+.comment-card .updating-form textarea:focus,
+.reply-card .updating-form textarea:focus {
+  outline-color: var(--Purple-600);
+}
+.comment-card .updating-form button,
+.reply-card .updating-form button {
+  align-self: flex-end;
+  padding: 10px 14px;
+  background-color: var(--Purple-600);
+  border: none;
+  color: var(--White);
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.comment-card .content .replyingTo,
+.reply-card .content .replyingTo {
+  color: var(--Purple-600);
+  font-weight: 550;
+}
+
+
+.add-comment,
+.add-reply {
+  width: 100%;
+}
+.add-reply {
+  margin-top: 20px;
+}
+.add-comment form,
+.add-reply form {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: var(--White);
+}
+.add-comment form img,
+.add-reply form img  {
+  width: 40px;
+}
+.add-comment form textarea,
+.add-reply form textarea  {
+  resize: none;
+  flex: 1;
+  height: 100px;
+  border-radius: 6px;
+  padding: 15px;
+  caret-color: var(--Grey-500);
+  border: 1px solid var(--Grey-100);
+}
+.add-comment form textarea:focus,
+.add-reply form textarea:focus {
+  outline-color: var(--Purple-600);
+}
+.add-comment form button,
+.add-reply form button  {
+  padding: 10px 14px;
+  background-color: var(--Purple-600);
+  border: none;
+  color: var(--White);
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.add-comment form button:hover,
+.add-reply form button:hover  {
+  background-color: var(--Purple-200);
+}
+
+.icon {
+    font-size: 18px; 
+  }
+@media (max-Width: 450px) {
+  .icon {
+    font-size: 16px; 
+  }
+}
+
+.delete-msg {
+  position: absolute;
+  background-color: #FFF;
+  z-index: 100;
+  width: 300px;
+  padding: 20px;
+  border-radius: 9px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.comment-card .delete-msg {
+  top: -170px;
+}
+.delete-msg p:first-of-type {
+  margin: 0;
+  font-weight: 700;
+  color: var(--Grey-800);
+}
+.delete-msg > div {
+  display: flex;
+  justify-content: space-between;
+}
+.delete-msg button {
+  border: none;
+  padding: 10px 13px;
+  color: var(--White);
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.delete-msg button:first-of-type {
+  background-color: var(--Grey-500);
+}
+.delete-msg button:last-of-type {
+  background-color: var(--Pink-400);
+}
+.delete-msg button:first-of-type:hover {
+  background-color: var(--Grey-100);
+}
+.delete-msg button:last-of-type:hover {
+  background-color: var(--Pink-200);
+}
+.delete-msg p {
+  margin: 10px 0;
+  color: var(--Grey-500);
+}
+.overlay {
+  position: relative;
+}
+.overlay::after {
+  position: absolute;
+  content: "";
+  left: -15px;
+  top: -85px;
+  width: calc(100% + 30px);
+  height: calc(100% + 170px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
