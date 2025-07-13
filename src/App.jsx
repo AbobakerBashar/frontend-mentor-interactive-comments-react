@@ -6,18 +6,17 @@ import data from "../public/data.json"
 export default function App() {
   const [overlay, setOverlay] = useState(false)
 
-  // const [comments, setComments] = useState(() => {
-  //   const savedData = localStorage.getItem("comments")
-  //   return savedData ? JSON.parse(savedData) : data.comments
-  // })
+  const [comments, setComments] = useState(() => {
+    const savedData = localStorage.getItem("comments")
+    return savedData ? JSON.parse(savedData) : data.comments
+  })
 
-  const [comments, setComments] = useState(data.comments)
 
-  console.log(comments);
+  // console.log(comments);
   
-  // useEffect(() => {
-  //   localStorage.setItem("comments", JSON.stringify(comments))
-  // }, [comments])
+  useEffect(() => {
+    localStorage.setItem("comments", JSON.stringify(comments))
+  }, [comments])
 
   const commentsCards = comments.map(comment => (
     <CommentCard
