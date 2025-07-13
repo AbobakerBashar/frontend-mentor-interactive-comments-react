@@ -27,7 +27,7 @@ export default function CommentForm({ currentUser, setComments }) {
   return (
     <section className="add-comment">
       <form action={addComment}>
-        <img src={currentUser.image.png} alt="" />
+        <img src={currentUser.image.png} alt="User imge" />
         <textarea name="comment"
           placeholder="Add a comment..."
           aria-label="Add a comment"

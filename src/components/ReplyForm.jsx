@@ -22,7 +22,7 @@ export default function ReplyForm({ currentUser, setComments, replyingTo, id, se
   return (
     <section className="add-reply">
       <form action={reply}>
-        <img src={currentUser.image.png} alt="" />
+        <img src={currentUser.image.png} alt="User image" />
         <textarea name="reply"
           placeholder="Reply..."
           aria-label={`Reply into `}
